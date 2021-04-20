@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Image gallery</h1>
+
+    {{#if images}}
+    <p>These are the fantastic images you've uploaded:</p>
+    <div class="grid-3">
+        {{#each images}}
+            <div class="card">
+                <a href="./images/{{this}}"><img class="card-header card-img" src="./images/thumbnails/{{this}}"></a>
+                <div class="card-body flex-row justify-center">
+                    <p><em>{{this}}</em></p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <p>Upload even more fantastic images below!</p>
+    {{else}}
+    <p>You haven't uploaded any images yet. Please use the form below to add some!</p>
+    {{/if}}
+
+    <div class="card">
+        <div class="card-body">
+            <h2>Image upload form</h2>
+
+            <form action="./uploadImage" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="inpFile">Upload an image here!</label>
+                    <input id="inpFile" type="file" name="imageFile" accept=".png,.jpg,.jpeg,.bmp,.gif">
+                </div>
+
+                <div class="form-group align-start">
+                    <button type="submit">Upload!</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+</div>
